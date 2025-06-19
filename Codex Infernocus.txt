@@ -1,0 +1,208 @@
+Codex Infernocus
+
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import React from "react";
+
+// Define data for image galleries
+const imageGalleries = [
+  {
+    id: "gallery1",
+    top: "3657px",
+    images: [
+      { src: "", alt: "Element 1" },
+      { src: "", alt: "Element 2" },
+      { src: "", alt: "Element 3" },
+      { src: "", alt: "Element 4" },
+      { src: "", alt: "Element 5" },
+      { src: "", alt: "Element 6" },
+      { src: "", alt: "Element 7" },
+      { src: "", alt: "Element 8" },
+      { src: "", alt: "Aetherdrake" },
+      { src: "", alt: "Landscape 8-1" },
+      { src: "", alt: "Landscape 10-1" },
+      { src: "", alt: "Landscape 18-1" },
+    ],
+  },
+  {
+    id: "gallery2",
+    top: "5243px",
+    images: [
+      { src: "", alt: "Image" },
+      { src: "", alt: "Element 2-2" },
+      { src: "", alt: "Element 3-2" },
+      { src: "", alt: "Element 4-2" },
+      { src: "", alt: "Element 5-2" },
+      { src: "", alt: "Element 6-2" },
+      { src: "", alt: "Element 7-2" },
+      { src: "", alt: "Element 8-2" },
+      { src: "", alt: "Thornback dragon" },
+      { src: "", alt: "Landscape 4" },
+      { src: "", alt: "Landscape 3" },
+      { src: "", alt: "Landscape 2" },
+    ],
+  },
+  {
+    id: "gallery3",
+    top: "6829px",
+    images: [
+      { src: "", alt: "Element 1-2" },
+      { src: "", alt: "Element 2-3" },
+      { src: "", alt: "Element 3-3" },
+      { src: "", alt: "Element 4-3" },
+      { src: "", alt: "Element 5-3" },
+      { src: "", alt: "Element 6-3" },
+      { src: "", alt: "Element 7-3" },
+      { src: "", alt: "Element 8-3" },
+      { src: "", alt: "Embermaw" },
+      { src: "", alt: "Landscape 11" },
+      { src: "", alt: "Landscape 5" },
+    ],
+  },
+  {
+    id: "gallery4",
+    top: "8415px",
+    images: [
+      { src: "", alt: "Element 1-3" },
+      { src: "", alt: "Element 2-4" },
+      { src: "", alt: "Element 3-4" },
+      { src: "", alt: "Element 4-4" },
+      { src: "", alt: "Element 5-4" },
+      { src: "", alt: "Element 6-4" },
+      { src: "", alt: "Element 7-4" },
+      { src: "", alt: "Element 8-4" },
+      { src: "", alt: "Meadowdrake" },
+      { src: "", alt: "Landscape 12-1" },
+      { src: "", alt: "Landscape 13-1" },
+      { src: "", alt: "Landscape 14-1" },
+    ],
+  },
+  {
+    id: "gallery5",
+    top: "10001px",
+    images: [
+      { src: "", alt: "Element 1-4" },
+      { src: "", alt: "Element 2-5" },
+      { src: "", alt: "Element 3-5" },
+      { src: "", alt: "Element 4-5" },
+      { src: "", alt: "Element 5-5" },
+      { src: "", alt: "Element 6-5" },
+      { src: "", alt: "Element 7-5" },
+      { src: "", alt: "Element 8-5" },
+      { src: "", alt: "Tidehunter" },
+      { src: "", alt: "Landscape 15" },
+      { src: "", alt: "Landscape 16" },
+      { src: "", alt: "Landscape 17" },
+    ],
+  },
+];
+
+const CodexInfernocus = (): JSX.Element => {
+  return (
+    <div className="relative w-full min-h-screen bg-[#393d32] pb-20">
+      {/* Header Section */}
+      <div className="container mx-auto pt-24 px-4">
+        <div className="relative">
+          <div className="w-[60px] h-[60px] bg-[#ffd401] rounded-[14px] absolute top-[-80px] left-[-260px]" />
+          <h1 className="[font-family:'Braggadocio-Regular',Helvetica] font-normal text-[#f1e3c8] text-7xl md:text-[150px] text-center tracking-[0] leading-normal whitespace-nowrap mb-12">
+            Codex Infernocus
+          </h1>
+
+          <div className="max-w-4xl mx-auto [font-family:'Buildings_and_under_the_railway_tracks-Regular',Helvetica] font-normal text-[#f1e3c8] text-xl md:text-3xl text-center tracking-[0] leading-normal mb-16">
+            This was a project that I had dreamed of for years, but I lacked the
+            <br />
+            skills and resources to begin. In college, I finally gained both,
+            but never
+            <br />
+            had the time. Caught up with assignments, activities and friends,
+            the idea
+            <br />
+            faded into the background. Then, during my final year, while
+            searching for a
+            <br />
+            project idea, I suddenly remembered it. After days of convincing, my
+            lecturer
+            <br />
+            finally gave the green light. And so began
+          </div>
+
+          <div className="max-w-5xl mx-auto [font-family:'Buildings_and_under_the_railway_tracks-Regular',Helvetica] font-normal text-[#f1e3c8] text-xl md:text-3xl text-center tracking-[0] leading-normal mb-16">
+            A world-building project that uses artistry, child-like passion and
+            dragons to breathe life
+            <br />
+            into a rich fantasy ecosystem. The story is told through the eyes of
+            our unnamed author.
+            <br />
+            Embark on a journey like no other, documenting the various wonders
+            of an
+            <br />
+            unfamiliar world.
+            <br />
+            <br />
+            From the shimmering skies to molten landscapes, CODEX INFERNOCUS
+            delves into the
+            <br />
+            behaviors, habitats, diets etc of these dangerous creatures. How
+            they and the world
+            <br />
+            around them evolved, adapt and interact with each other.
+          </div>
+        </div>
+      </div>
+
+      {/* Book Cover */}
+      <div className="w-full h-[1080px] mb-16">
+        <img className="w-full h-full object-cover" alt="Book cover" src="" />
+      </div>
+
+      {/* Image Galleries */}
+      {imageGalleries.map((gallery) => (
+        <div key={gallery.id} className="mb-16">
+          <Card className="border-none bg-transparent">
+            <CardContent className="p-0">
+              <ScrollArea className="w-full whitespace-nowrap">
+                <div className="flex space-x-16 p-4">
+                  {gallery.images.map((image, index) => (
+                    <div
+                      key={`${gallery.id}-image-${index}`}
+                      className="shrink-0"
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className={`h-[900px] ${
+                          image.alt.includes("Aetherdrake") ||
+                          image.alt.includes("Embermaw") ||
+                          image.alt.includes("Tidehunter")
+                            ? "w-[675px]"
+                            : "w-[1600px]"
+                        } object-cover rounded-md`}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <ScrollBar orientation="horizontal" />
+              </ScrollArea>
+            </CardContent>
+          </Card>
+          <Separator className="my-8 bg-[#f1e3c8] opacity-20" />
+        </div>
+      ))}
+
+      {/* Conclusion */}
+      <div className="container mx-auto px-4 mb-20">
+        <div className="max-w-4xl mx-auto [font-family:'Buildings_and_under_the_railway_tracks-Regular',Helvetica] font-normal text-white text-xl md:text-3xl text-center tracking-[0] leading-normal">
+          And this concludes CODEX INFERNOCUS but the journey is not yet done.
+          <br />
+          There is still many more to explore within this wonderous world and
+          many
+          <br />
+          questions yet to be answered...
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CodexInfernocus;

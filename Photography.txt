@@ -1,0 +1,110 @@
+Photography
+
+import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
+
+export default function PhotographyPage(): JSX.Element {
+  // Image data for easier mapping
+  const images = [
+    {
+      id: 1,
+      src: "./1743445718480-1.png",
+      alt: "Photography image 1",
+      className: "h-[900px] object-cover w-full",
+    },
+    {
+      id: 2,
+      src: "./1746085483819-1.png",
+      alt: "Photography image 2",
+      className: "h-[900px] object-cover w-full",
+    },
+    {
+      id: 3,
+      src: "./1746013884766-1.png",
+      alt: "Photography image 3",
+      className: "h-[899px] object-cover w-full",
+    },
+    {
+      id: 4,
+      src: "./IMG-8011-1.png",
+      alt: "Photography image 4",
+      className: "h-[899px] object-cover w-full",
+    },
+    {
+      id: 5,
+      src: "./IMG-8012-2.png",
+      alt: "Photography image 5",
+      className: "h-[1000px] object-cover w-full",
+    },
+    {
+      id: 6,
+      src: "./IMG-8025-2.png",
+      alt: "Photography image 6",
+      className: "h-[1000px] object-cover w-full",
+    },
+    {
+      id: 7,
+      src: "./IMG-8013-2.png",
+      alt: "Photography image 7",
+      className: "h-[1000px] object-cover w-full",
+    },
+    {
+      id: 8,
+      src: "./1746014380929-2.png",
+      alt: "Photography image 8",
+      className: "h-[1000px] object-cover w-full",
+    },
+  ];
+
+  // Split images into pairs and full-width images
+  const topPairs = images.slice(0, 4);
+  const fullWidthImages = images.slice(4);
+
+  return (
+    <div className="bg-[#393d32] min-h-screen w-full max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-8 relative">
+      {/* Yellow square icon */}
+      <div className="w-[60px] h-[60px] bg-[#ffd401] rounded-[14px] mb-4" />
+
+      {/* Photography title */}
+      <h1 className="text-center text-[#f1e3c8] text-5xl md:text-7xl lg:text-[125px] [font-family:'Braggadocio-Regular',Helvetica] font-normal tracking-normal leading-normal mb-12">
+        Photography
+      </h1>
+
+      {/* Top image pairs */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {topPairs.map((image, index) => (
+          <Card
+            key={image.id}
+            className="border-none bg-transparent overflow-hidden"
+          >
+            <CardContent className="p-0">
+              <img
+                src={image.src}
+                alt={image.alt}
+                className={image.className}
+              />
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Full-width images */}
+      <div className="space-y-8">
+        {fullWidthImages.map((image) => (
+          <Card
+            key={image.id}
+            className="border-none bg-transparent overflow-hidden"
+          >
+            <CardContent className="p-0">
+              <img
+                src={image.src}
+                alt={image.alt}
+                className={image.className}
+              />
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

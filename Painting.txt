@@ -1,0 +1,212 @@
+Painting
+
+import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
+
+export default function PaintingPage(): JSX.Element {
+  // Digital paintings data
+  const digitalPaintings = [
+    {
+      id: 1,
+      src: "./reflection-1.png",
+      alt: "Reflection",
+      width: "1300px",
+      height: "928px",
+    },
+    {
+      id: 2,
+      src: "./landscape-1-1.png",
+      alt: "Landscape",
+      width: "1299px",
+      height: "812px",
+    },
+    {
+      id: 3,
+      src: "./cigar-1.png",
+      alt: "Cigar",
+      width: "696px",
+      height: "974px",
+      isLeftPair: true,
+    },
+    {
+      id: 4,
+      src: "./landscape.png",
+      alt: "Landscape",
+      width: "650px",
+      height: "974px",
+      isRightPair: true,
+    },
+    {
+      id: 5,
+      src: "./image.png",
+      alt: "Landscape",
+      width: "779px",
+      height: "974px",
+      isLeftPair: true,
+    },
+    {
+      id: 6,
+      src: "./swablu-1.png",
+      alt: "Swablu",
+      width: "696px",
+      height: "974px",
+      isRightPair: true,
+    },
+  ];
+
+  // Acrylic paintings data
+  const acrylicPaintings = [
+    {
+      id: 1,
+      src: "./IMG-20230210-200954.png",
+      alt: "Acrylic Painting 1",
+      width: "1230px",
+      height: "812px",
+    },
+    {
+      id: 2,
+      src: "./IMG-20230210-201407.png",
+      alt: "Acrylic Painting 2",
+      width: "1006px",
+      height: "812px",
+    },
+    {
+      id: 3,
+      src: "./IMG-20230210-201552.png",
+      alt: "Acrylic Painting 3",
+      width: "1015px",
+      height: "812px",
+    },
+    {
+      id: 4,
+      src: "./IMG-20230210-201305.png",
+      alt: "Acrylic Painting 4",
+      width: "814px",
+      height: "812px",
+    },
+    {
+      id: 5,
+      src: "./IMG-20230210-202323.png",
+      alt: "Acrylic Painting 5",
+      width: "631px",
+      height: "974px",
+    },
+  ];
+
+  return (
+    <div className="relative w-full min-h-screen bg-[#393d32] flex flex-col items-center px-4">
+      {/* Header */}
+      <header className="w-full flex flex-col items-center pt-[103px] relative">
+        <div className="w-[60px] h-[60px] absolute top-0 left-4 bg-[#ffd401] rounded-[14px]" />
+        <h1 className="font-['Braggadocio-Regular',Helvetica] text-[#f1e3c8] text-[125px] text-center leading-normal">
+          Paintings
+        </h1>
+      </header>
+
+      {/* Digital Paintings Section */}
+      <section className="w-full max-w-[1300px] mt-16 flex flex-col items-center">
+        <h2 className="font-['Buildings_and_under_the_railway_tracks-Regular',Helvetica] text-[#f1e3c8] text-[75px] mb-8">
+          Digital Paintings
+        </h2>
+
+        <div className="w-full flex flex-col items-center gap-8">
+          {digitalPaintings.map((painting, index) => {
+            // For paired images, render them in a row
+            if (painting.isLeftPair) {
+              const rightPainting = digitalPaintings.find(
+                (p) => p.id === painting.id + 1,
+              );
+
+              if (rightPainting) {
+                return (
+                  <div
+                    key={`pair-${painting.id}`}
+                    className="flex flex-row gap-8 w-full justify-center"
+                  >
+                    <Card className="border-0 bg-transparent">
+                      <CardContent className="p-0">
+                        <img
+                          src={painting.src}
+                          alt={painting.alt}
+                          className="object-cover"
+                          style={{
+                            width: painting.width,
+                            height: painting.height,
+                            maxWidth: "100%",
+                          }}
+                        />
+                      </CardContent>
+                    </Card>
+                    <Card className="border-0 bg-transparent">
+                      <CardContent className="p-0">
+                        <img
+                          src={rightPainting.src}
+                          alt={rightPainting.alt}
+                          className="object-cover"
+                          style={{
+                            width: rightPainting.width,
+                            height: rightPainting.height,
+                            maxWidth: "100%",
+                          }}
+                        />
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              }
+            }
+
+            // Skip right pair images as they're rendered with their left pair
+            if (painting.isRightPair) {
+              return null;
+            }
+
+            // Render single images
+            return (
+              <Card key={painting.id} className="border-0 bg-transparent">
+                <CardContent className="p-0">
+                  <img
+                    src={painting.src}
+                    alt={painting.alt}
+                    className="object-cover"
+                    style={{
+                      width: painting.width,
+                      height: painting.height,
+                      maxWidth: "100%",
+                    }}
+                  />
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Acrylic Paintings Section */}
+      <section className="w-full max-w-[1300px] mt-16 flex flex-col items-center">
+        <h2 className="font-['Buildings_and_under_the_railway_tracks-Regular',Helvetica] text-white text-[75px] mb-8">
+          Acrylic Paintings
+        </h2>
+
+        <div className="w-full flex flex-col items-center gap-8">
+          {acrylicPaintings.map((painting) => (
+            <Card key={painting.id} className="border-0 bg-transparent">
+              <CardContent className="p-0">
+                <img
+                  src={painting.src}
+                  alt={painting.alt}
+                  className="object-cover"
+                  style={{
+                    width: painting.width,
+                    height: painting.height,
+                    maxWidth: "100%",
+                  }}
+                />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

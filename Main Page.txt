@@ -1,0 +1,151 @@
+Main Page
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+import React from "react";
+
+const MainPageSection = (): JSX.Element => {
+  // Navigation items data
+  const navigationItems = [
+    { label: "home", href: "#" },
+    { label: "about", href: "#" },
+    { label: "gallery", href: "#" },
+    { label: "contact", href: "#" },
+  ];
+
+  // Gallery images data
+  const galleryItems = [
+    { title: "FYP", src: "", alt: "FYP" },
+    { title: "Painting", src: "", alt: "Painting" },
+    { title: "Photography", src: "", alt: "Photography" },
+    { title: "Poster", src: "", alt: "Poster" },
+  ];
+
+  return (
+    <div className="relative w-full bg-[#393d32] overflow-y-auto">
+      {/* Main Navigation */}
+      <header className="flex justify-end p-16">
+        <NavigationMenu>
+          <NavigationMenuList className="flex gap-8">
+            {navigationItems.map((item) => (
+              <NavigationMenuItem key={item.label}>
+                <NavigationMenuLink
+                  className="text-white text-xl [font-family:'LuloCleanOne-Bold-☞',Helvetica] font-normal text-center tracking-[0] leading-normal"
+                  href={item.href}
+                >
+                  {item.label}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </header>
+
+      {/* Mobile Navigation */}
+      <Card className="fixed w-[127px] h-[221px] top-[497px] left-[63px] shadow-[0px_4px_16px_#00000033] z-10">
+        <CardContent className="relative w-[145px] h-[245px] -top-3 left-[-9px] bg-[#aa3d1d] rounded-[22.5px] p-0">
+          <div className="flex flex-col items-center justify-center h-full gap-10">
+            {navigationItems.map((item, index) => (
+              <Button
+                key={item.label}
+                variant="link"
+                className="[font-family:'LuloCleanOne-Bold-☞',Helvetica] font-normal text-[#f1e3c8] text-[10px] text-center tracking-[0] leading-normal"
+              >
+                {item.label}
+              </Button>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Portfolio Header Section */}
+      <section className="flex flex-col items-center justify-center mt-[356px] mb-24">
+        <div className="w-full max-w-[1277px] flex flex-col items-center gap-8">
+          <h1 className="[font-family:'LuloCleanOne-Bold-☞',Helvetica] font-normal text-[#f1e3c8] text-[150px] text-center tracking-[0] leading-normal">
+            Portfolio
+          </h1>
+          <h2 className="[font-family:'LuloCleanOne-Bold-☞',Helvetica] font-normal text-[#f1e3c8] text-[25px] text-center tracking-[0] leading-normal">
+            Tan Yue Liang
+          </h2>
+          <p className="[font-family:'LuloCleanOne-Bold-☞',Helvetica] font-normal text-[#f1e3c8] text-[25px] text-center tracking-[0] leading-normal">
+            2025
+          </p>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="flex justify-center my-24">
+        <div className="w-full max-w-[1606px] flex flex-row gap-14">
+          <div className="flex-1 flex flex-col items-center justify-center">
+            <div className="max-w-[757px]">
+              <h2 className="[font-family:'Braggadocio-Regular',Helvetica] font-normal text-[#ffd401] text-[150px] text-center tracking-[0] leading-normal mb-8">
+                Hi!
+              </h2>
+              <p className="[font-family:'Buildings_and_under_the_railway_tracks-Regular',Helvetica] font-normal text-[#f1e3c8] text-3xl text-center tracking-[-1.20px] leading-normal mb-8">
+                I&apos;m Tan Yue Liang - an illustrator and Graphic
+                <br />
+                Designer. Whether I&apos;m telling beautiful stories
+                <br />
+                with vibrant paintings or producing intriguing visuals, I put my
+                heart and soul into every project I work on.
+              </p>
+              <p className="[font-family:'Buildings_and_under_the_railway_tracks-Regular',Helvetica] font-normal text-[#f1e3c8] text-3xl text-center tracking-[-1.20px] leading-normal">
+                Do explore my work and I hope
+                <br />
+                you see what you like!
+              </p>
+            </div>
+          </div>
+          <div className="flex-1">
+            <img
+              className="w-full max-w-[792px] h-auto"
+              alt="Tan Yue Liang profile"
+              src=""
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="w-full my-24">
+        <h2 className="[font-family:'LuloCleanOne-Bold-☞',Helvetica] font-normal text-[#f1e3c8] text-[125px] text-center tracking-[-5.00px] leading-normal mb-16">
+          Gallery
+        </h2>
+        <div className="flex flex-col gap-0">
+          {galleryItems.map((item) => (
+            <Card key={item.title} className="w-full border-none rounded-none">
+              <CardContent className="p-0">
+                <img
+                  className="w-full h-[450px] object-cover"
+                  alt={item.alt}
+                  src={item.src}
+                />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="flex flex-col items-center my-24">
+        <h2 className="[font-family:'LuloCleanOne-Bold-☞',Helvetica] font-normal text-[#f1e3c8] text-[125px] text-center tracking-[-5.00px] leading-normal mb-16">
+          Contact
+        </h2>
+        <p className="[font-family:'Buildings_and_under_the_railway_tracks-Regular',Helvetica] font-normal text-[#f1e3c8] text-3xl text-center tracking-[-1.20px] leading-normal mb-8">
+          012-3794827
+        </p>
+        <p className="[font-family:'Buildings_and_under_the_railway_tracks-Regular',Helvetica] font-normal text-[#f1e3c8] text-3xl text-center tracking-[0] leading-normal">
+          tanyueliang021015@gmail.com
+        </p>
+      </section>
+    </div>
+  );
+};
+
+export default MainPageSection;

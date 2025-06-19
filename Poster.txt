@@ -1,0 +1,163 @@
+Poster
+
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { ArrowLeft } from "lucide-react";
+import React from "react";
+
+// Define poster data for mapping
+const posterData = [
+  {
+    id: 1,
+    image: "/akebi-chan-no-s-r-fuku-2.png",
+    title: "Akebi's Sailor Uniform",
+    position: "top",
+  },
+  {
+    id: 2,
+    image: "/ante-meridian.png",
+    title: "Ante Meridian",
+    position: "top",
+  },
+  {
+    id: 3,
+    image: "/1-6.png",
+    title: "电车",
+    subtitle: null,
+    position: "middle",
+  },
+  {
+    id: 4,
+    image: "/poster-1.png",
+    title: "怀念",
+    subtitle: "Yearning",
+    position: "middle",
+  },
+  {
+    id: 5,
+    image: "/final-1.png",
+    title: null,
+    subtitle: null,
+    position: "large",
+  },
+  {
+    id: 6,
+    image: "/the-wind-rises.png",
+    title: "The Wind Rises",
+    position: "bottom",
+  },
+  {
+    id: 7,
+    image: "/kiki.png", // Inferred from the title
+    title: "Kiki's Delivery Service",
+    position: "bottom",
+  },
+];
+
+const PostersSection = (): JSX.Element => {
+  return (
+    <ScrollArea className="w-full h-screen bg-[#393d32]">
+      <div className="flex flex-col items-center py-10 px-6 relative">
+        {/* Back button */}
+        <div className="self-start mb-8">
+          <Card className="w-[60px] h-[60px] bg-[#ffd401] rounded-[14px] flex items-center justify-center">
+            <CardContent className="p-0 flex items-center justify-center h-full">
+              <ArrowLeft size={24} />
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Title */}
+        <h1 className="text-[125px] text-[#f1e3c8] font-['Braggadocio-Regular',Helvetica] mb-16">
+          Posters
+        </h1>
+
+        {/* Top row posters */}
+        <div className="flex w-full gap-8 mb-12">
+          {posterData
+            .filter((poster) => poster.position === "top")
+            .map((poster) => (
+              <div key={poster.id} className="flex flex-col">
+                <Card className="border-none">
+                  <CardContent className="p-0">
+                    <div
+                      className="w-full h-[956px] bg-cover bg-center"
+                      style={{ backgroundImage: `url(${poster.image})` }}
+                    />
+                  </CardContent>
+                </Card>
+                <p className="mt-2 text-[25px] text-white font-['Buildings_and_under_the_railway_tracks-Regular',Helvetica] tracking-[-1px]">
+                  {poster.title}
+                </p>
+              </div>
+            ))}
+        </div>
+
+        {/* Middle row posters */}
+        <div className="flex w-full gap-8 mb-12">
+          {posterData
+            .filter((poster) => poster.position === "middle")
+            .map((poster) => (
+              <div key={poster.id} className="flex flex-col">
+                <Card className="border-none">
+                  <CardContent className="p-0">
+                    <div
+                      className="w-full h-[956px] bg-cover bg-center"
+                      style={{ backgroundImage: `url(${poster.image})` }}
+                    />
+                  </CardContent>
+                </Card>
+                <div className="mt-2">
+                  <p className="text-[25px] text-white font-['Xiangjiao-dajiangjunlingganti-Regular',Helvetica] tracking-[-1px]">
+                    {poster.title}
+                  </p>
+                  {poster.subtitle && (
+                    <p className="text-[25px] text-white font-['Buildings_and_under_the_railway_tracks-Regular',Helvetica] tracking-[-1px]">
+                      {poster.subtitle}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+        </div>
+
+        {/* Large poster */}
+        {posterData
+          .filter((poster) => poster.position === "large")
+          .map((poster) => (
+            <div key={poster.id} className="w-full mb-12">
+              <Card className="border-none">
+                <CardContent className="p-0">
+                  <div
+                    className="w-full h-[889px] bg-cover bg-center"
+                    style={{ backgroundImage: `url(${poster.image})` }}
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+
+        {/* Bottom row posters */}
+        {posterData
+          .filter((poster) => poster.position === "bottom")
+          .map((poster) => (
+            <div key={poster.id} className="w-full mb-12" key={poster.id}>
+              <Card className="border-none">
+                <CardContent className="p-0">
+                  <div
+                    className="w-full h-[889px] bg-cover bg-center"
+                    style={{ backgroundImage: `url(${poster.image})` }}
+                  />
+                </CardContent>
+              </Card>
+              <p className="mt-2 text-[25px] text-white font-['Buildings_and_under_the_railway_tracks-Regular',Helvetica] tracking-[-1px]">
+                {poster.title}
+              </p>
+            </div>
+          ))}
+      </div>
+    </ScrollArea>
+  );
+};
+
+export default PostersSection;
